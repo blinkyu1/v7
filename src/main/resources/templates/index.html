@@ -1,0 +1,167 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Calculadora de Caja de Ahorro</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	  
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+   
+    <script type="text/javascript" src="#"></script>
+    <link href="./css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+  </head>
+  <body className="snippet-body">
+  
+    <div class="container">
+      <div class="card">
+     
+        <div class="wrapper">
+          <div class="tabs">
+            <div class="tab">
+              <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch"  >
+              <label for="tab-1" class="tab-label" >Simulador</label>
+              </div>
+            <div class="tab">
+              <input type="radio" name="css-tabs" id="tab-2" class="tab-switch"  >
+              <label for="tab-2" class="tab-label" >Resultado</label>
+              </div>
+          
+          </div>
+        </div>
+
+          <div class="right-side">
+            <div class="main active">
+              <div class="text">
+                <h2 class="heading">Simula tu caja de ahorro</h2>
+                <p>
+                  Completa los datos para calcular los
+                </p>
+                <p>
+                  intereses para ver tu ganancia al finalizar el mes.
+                </p>
+              </div>
+              <div class="input-text">
+                <div class="input-div">
+                <select
+                                           id="Categoria"
+                                           name="Categoria"
+                                           data-rule-required="true"
+                                           data-msg-required="Select a Cliente"
+                                           onchange="cargar()"
+                                         >
+                                        
+                                         </select>
+                </div>
+              </div>
+              <div class="input-text">
+                <div class="input-div">
+                <select
+                                           id="SubCategoria"
+                                           name="SubCategoria"
+                                           th:value="*{SubCategoria}"
+                                           data-rule-required="true"
+                                           data-msg-required="Select a Cliente"
+                                              
+                                         >
+                                             </select>
+                </div>
+              </div>
+              <div class="input-text">
+                <div class="input-div">
+                  <select
+                    id="TipoMoneda"
+                    ng-model="vm.TipoMoneda"
+                    ng-options="option.symbol for option in vm.TipoMoneda"
+                    ng-change="vm.resetTipoMoneda()"
+                    class="TipoMoneda"
+                    aria-invalid="false"
+                  >
+                    <option selected="selected">Tipo de Moneda</option>
+                    <option label="BOLIVIANOS" value="object:16">BOLIVIANOS</option>
+                    <option label="DOLARES" value="object:17">DOLARES</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-text">
+                <div class="input-div">
+                <input
+                    class="monto number"
+                    type="text"
+                    id="monto"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                    required=""
+                    placeholder="Capital de Inversion"
+                  />
+                </div>
+              </div>
+           
+              <div class="button">
+                
+                <button
+                  type="submit"
+                  class="bn3 simulaUm"
+                  id="subt"
+                  value="Calcular"
+                >
+                  Siguiente
+                </button>
+                <button
+                  type="submit"
+                  id="subm"
+                  class="bn3 next_button"
+                  style="display:none"
+                  value="Calcular"
+                >
+                  Siguiente
+                </button>
+              </div>
+            </div>
+
+            <div class="main">
+              <div class="text">
+                <h2 class="heading">Resultado</h2>
+                <p>
+                  Haz cumplir tu sueño de tener eso lo que tanto sueñas Tener
+                </p>
+                <p>
+                   BancoSol te lo hace realidad.
+                </p>
+              </div>
+
+            </br>
+              <div class="button">
+                <button class="bn3 back_button"> Cambiar datos y recalcular</button>
+              </div>
+              
+         
+              
+              <div class="input-text">
+                <div id="table_body"></div>
+                  
+                 
+              </div>  
+                   
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase.js "></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./js/funcione.js"th:href="@{/js/funcione.js}"></script>    
+    <script src="./js/Navegator.js"th:href="@{/js/Navegator.js}"></script>
+  </body>
+</html>
